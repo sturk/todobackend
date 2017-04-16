@@ -1,0 +1,15 @@
+requirements_text:
+
+-e .[test]
+
+Decription: This tell pip to addtionally install the "test" array of dependencies in the extras_require setting of setup.py
+
+
+Builder service is based from the Development image which copies the todobackend /src code to /application folder inside the 
+container. 
+Builder service entrypoint invokes the entrypoint.sh script which activate virtul env and executes the pipwheel dot Command
+Which compiles and Build into a python wheel using setup.py file and build cache which is populated in test stage and shared
+volume in container service.
+The Python wheel is output to the /wheelhouse folder and the builder container which is mapped to a subfolder called
+Target folder in the todobackend repository ensuring we can use the built artifacts in later stages of our continues delivery
+workflow.
