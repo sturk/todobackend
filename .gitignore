@@ -1,0 +1,7 @@
+# Ignore the virtual environment
+venv/
+
+# Ignore files
+notes.txt
+*.pyc
+*.pyo
